@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velvet Coast — GTA-style Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" id="controls">
+    <h1>Velvet Coast</h1>
+    <p class="tagline">Turn your own photos into a GTA-style cover poster. Add photos, crop each panel, export the poster.</p>
+
+    <button id="addPhotos" type="button" class="primary">＋ Add photos</button>
+    <input id="photoInput" type="file" accept="image/*" multiple hidden>
+    <p class="hint">Or drop a picture straight onto a panel below — or onto the poster itself. Each photo lands in one panel; use the sliders to crop and reposition it.</p>
+
+    <label>Title <input id="titleInput" type="text" maxlength="20" value="VELVET COAST"></label>
+    <label>Script subtitle <input id="scriptInput" type="text" maxlength="40" value="one last golden hour"></label>
+    <label>Grade
+      <select id="gradeSelect"></select>
+    </label>
+    <label>Layout
+      <select id="layoutSelect"></select>
+    </label>
+    <label>Preview size
+      <select id="sizeSelect"></select>
+    </label>
+
+    <h2>Cast — one photo per panel</h2>
+    <div id="panelList" class="panel-list"></div>
+
+    <h2>Export PNG</h2>
+    <div class="exports">
+      <button type="button" data-export="portrait">Export 1080 × 1350</button>
+      <button type="button" data-export="square">Export 1080 × 1080</button>
+      <button type="button" data-export="wide">Export 1920 × 1080</button>
+    </div>
+    <p id="status" role="status"></p>
+    <p class="fine">Photos stay on your machine — nothing is uploaded. All people on the cover are original characters; no Rockstar artwork, logo or font is used.</p>
+  </section>
+  <section class="stage">
+    <canvas id="preview" width="540" height="675" aria-label="Live poster preview"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
